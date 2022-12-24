@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  /* cores */
+  --bg-body: #0c192c;
+  --bubbles-primaria: #4fc3dc;
+  --bubbles-secundaria: #4fc3dc44;
+  --bubbles-primaria-2: #ff2d75;
+  --bubbles-secundaria-2: #ff2d7544;
+  
+  --btn-primaria: #12cbc4;
+  --btn-secundaria: #0652dd;
+
+  --white: #fff;
+  --gray: #a09d9d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-body);
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bubbles {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubbles span {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #3fc3dc;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px var(--bubbles-secundaria),
+  0 0 50px var(--bubbles-primaria),
+  0 0 100px var(--bubbles-primaria);
+  animation: animate 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+  background: var(--bubbles-primaria-2);
+  box-shadow: 0 0 0 10px var(--bubbles-secundaria-2),
+  0 0 50px var(--bubbles-primaria-2),
+  0 0 100px var(--bubbles-primaria-2);
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}
+
+@media (max-width: 650px) {
+  .bubbles span {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .bubbles span {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* =================== card links ======================== */
+.card {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+
+  max-width: 400px;
+  margin-inline: auto;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.card header {
+  text-align: center;
+  color: var(--white);
+}
+
+.card header img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--gray);
+  padding: 4px;
+}
+
+.card header h1 {
+  font-size: 20px;
+}
+
+.card .links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px;
+}
+
+.links a {
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  border-radius: 4px;
+  border-top-left-radius: 20px;
+  border-end-end-radius: 20px;
+  
+  background-image: linear-gradient(to left, var(--btn-primaria), var(--btn-secundaria), var(--btn-primaria));
+  background-size: 200%;
+  transition: .6s;
+}
+
+.links a:hover {
+  background-position: right;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icons li a {
+  background-image: linear-gradient(to left, var(--btn-primaria), var(--btn-secundaria), var(--btn-primaria));
+  background-size: 200%;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease-in-out;
+}
+
+.icons li a:hover {
+  transform: translateY(-10px);
+  background-position: right;
+}
+
+@media (max-width: 550px) {
+  .container {
+    overflow: auto;
+  }
+  .card {
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    margin: 20px;
+  }
+}
